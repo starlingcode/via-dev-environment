@@ -7,6 +7,8 @@ Supported flashing methods include micro USB (for flashing when disconnected fro
 
 An early version of a Python toolkit for generating Via resources (wavetables, scales, patterns) is included.
 
+If you prefer, you can use the Eclipse setup instructions in the [main firmware repo](https://github.com/starlingcode/via_hardware_executables) to work in an IDE on your host machine.
+
 ## Requirements
 Make sure you have the latest version of [Vagrant](https://www.vagrantup.com/downloads.html) and
 [VirtualBox 5.x](https://www.virtualbox.org/wiki/Downloads) installed.
