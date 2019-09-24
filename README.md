@@ -91,9 +91,9 @@ If you are working with a unit that has valid calibration stored in the EEPROM, 
 
 ```calib``` writes the option bytes over StLinkV2 to ensure that the firmware will read the stored calibration data.
 
-```upload-usb``` builds the firmware and flashes it over StLinkV2.
+```upload-usb``` builds the firmware and flashes it over DFU using a micro USB connection.
 
-```calib-usb``` writes the option bytes over StLinkV2 to ensure that the firmware will read the stored calibration data.
+```calib-usb``` writes the option bytes over over DFU/USB to ensure that the firmware will read the stored calibration data.
 
 ## Flashing tools
 
