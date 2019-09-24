@@ -1,5 +1,5 @@
 # Vagrant enviroment for Starling Via hacking
-A Vagrant pox provisioned with the tools needed to build, flash, and hack Via modules. 
+A Vagrant box provisioned with the tools needed to build, flash, and hack Via modules. 
 
 Modeled after the [Mutable Dev Environment](https://github.com/pichenettes/mutable-dev-environment) and [Adafruit ARM toolchain](https://github.com/adafruit/ARM-toolchain-vagrant) Vagrant boxes.
 
@@ -9,7 +9,9 @@ An early version of a Python toolkit for generating Via resources (wavetables, s
 
 If you prefer, you can use the Eclipse setup instructions in the [main firmware repo](https://github.com/starlingcode/via_hardware_executables) to work in an IDE on your host machine.
 
-## Requirements
+## Vagrant setup
+
+### Install Vagrant, VirtualBox, and USB extension
 Make sure you have the latest version of [Vagrant](https://www.vagrantup.com/downloads.html) and
 [VirtualBox 5.x](https://www.virtualbox.org/wiki/Downloads) installed.
 
@@ -33,8 +35,11 @@ so that the virtual machine can access your USB devices.  Run the following comm
 
 Then **log out and log back in** to make sure the group change takes effect.
 
-## Vagrant setup
-To start the VM open a terminal in the directory with the Vagrantfile and run:
+### Starting, entering, exiting
+
+Download the repo by downloading as a zip file or ```git clone https://https://github.com/starlingcode/via-dev-environment.git```. If you have never used a terminal before, get comfortable with navigating using ```cd``` and ```ls```. Explore the wonders of tab completion.
+
+To start the VM: open a terminal, navigate to the root of the repo (with the Vagrantfile) and run:
 
     vagrant up
 
@@ -54,11 +59,16 @@ Note that after you exit the VM it will still be running! To avoid issues with s
 
     vagrant halt
 
+You can bring it back up with
+
+    vagrant up
+
 If you would ever like to completely delete the VM and start fresh you can remove it with:
 
     vagrant destroy
 
-Inside the virtual machine the `/vagrant` path (the default location of the firmware repo and python tool kit) will be syncronized with the location of the Vagrantfile on your real machine.  You can copy files to and from these locations to move data between the two machines.
+### Transferring files
+Inside the virtual machine the `/vagrant` path (the default location of the firmware repo and python tool kit) will be syncronized with the location of the Vagrantfile on your real machine.  This folder is your portal between the host and the virtual machine for transferring files.
 
 ## Firmware building
 When you log into the Vagrant box with ```ssh```, the current directory will be set the the root of the firmware repository.
