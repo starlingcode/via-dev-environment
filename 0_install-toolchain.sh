@@ -3,6 +3,15 @@
 
 #!/usr/bin/env bash
 
+# fix apt warnings like:
+# ==> default: dpkg-preconfigure: unable to re-open stdin: No such file or directory
+# http://serverfault.com/questions/500764/dpkg-reconfigure-unable-to-re-open-stdin-no-file-or-directory
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+dpkg-reconfigure locales
+
 # # Add the basics
 
 sudo dpkg --add-architecture i386
