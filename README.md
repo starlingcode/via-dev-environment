@@ -37,13 +37,21 @@ Then **log out and log back in** to make sure the group change takes effect.
 
 ### Starting, entering, exiting
 
-Download the repo by downloading as a zip file or ```git clone https://https://github.com/starlingcode/via-dev-environment.git```. If you have never used a terminal before, get comfortable with navigating using ```cd``` and ```ls```. Explore the wonders of tab completion.
+If you have never used a terminal before, get comfortable with navigating using ```cd``` and ```ls```. Explore the wonders of tab completion.
 
-To start the VM: open a terminal, navigate to the root of the repo (with the Vagrantfile) and run:
+Open a terminal, navigate to the desired location of the Vagrant box and clone the repo with:
+
+    git clone https://https://github.com/starlingcode/via-dev-environment.git
+    
+Navigate to the newly created directory with:
+
+    cd via-dev-environment
+
+To start the Virtual Machine, run:
 
     vagrant up
 
-The first time the VM is started it will download an operating system image and provision it. This process can take a long time (~10-45 minutes) After the initial provisioning future VM startups will take just a few seconds.
+The first time the VM is started it will download an operating system image and provision it. This process can take a long time (~10-45 minutes). After the initial provisioning future VM startups will take just a few seconds.
 
 Once the VM is running you can connect to it by running:
 
@@ -51,7 +59,7 @@ Once the VM is running you can connect to it by running:
 
 You will now be inside the VM and ready to build, flash, and hack firmware.
 
-When you're ready to stop the VM you can exit it by running the following command inside the VM:
+You can exit it by running the following command:
 
     exit
 
@@ -95,7 +103,7 @@ If you are working with a unit that has valid calibration stored in the EEPROM, 
     make -f sync3/makefile upload calib 
     make -f sync3/makefile upload-usb calib-usb
 
-```clean``` removes the firmware and library builds. The next build will reflect any chances in the source.
+```clean``` removes the firmware and library builds. The next build will reflect any changes in the source.
 
 ```upload``` builds the firmware and flashes it over StLinkV2.
 
@@ -108,10 +116,18 @@ If you are working with a unit that has valid calibration stored in the EEPROM, 
 ## Flashing tools
 
 ### SWD (STLink)
-Our preferred firmware flashing method is STLink using SWD, becuase it allows the module to be programmed while connected to euro power. An STM32F0DISCOVERY board can be purchased for under $10 and a cable can be provisioned from 6 socket to socket breadboard cables. Pin 1 on the Via SWD header points towards the top of the module. The modules must be connected to eurorack power and powered on to flash over STLink.
+Our preferred firmware flashing method is STLink using SWD, becuase it allows the module to be programmed while connected to euro power. An STM32F0DISCOVERY board can be purchased for under $10 and a cable can be provisioned from 6 socket to socket breadboard cables. 
+
+Pin 1 on the Via SWD header points towards the top of the module. 
+
+The module must be connected to eurorack power and powered on to flash over STLink.
 
 ### DFU (USB)
-You can also flash over micro USB with DFU when the module is disconnected from Eurorack power. Be sure that your micro USB cable supports data transfer. The device can only be programmed if the DFU button near the USB connector is pressed while connecting the USB to your computer. You may need to disconnect the expander side of the jumper cable.
+You can also flash over micro USB with DFU when the module is disconnected from Eurorack power. 
+
+Be sure that your micro USB cable supports data transfer. You may need to disconnect the expander side of the 12 pin jumper cable when flashing over USB.
+
+Press the DFU button on the module when making the connection to the host computer to activate the special DFU bootloader used to flash firmware. 
 
 ## Hacking resources
 
@@ -125,6 +141,5 @@ The Starling repository is automatically added as the git remote `starlingcode`.
 ### Python resource generators
 The wavetables, scales, and patterns in the Via modules were all generated from the Python project copied into the same directory as the firmware repo (in /vagrant/wavetablegentools). You can run scripts in that directory with the system Python3 command, as all requirements were installed in provisioning.
 
-Documentation and refactoring are sorely needed.
-
-
+A few tutorials to get you started with hacking:
+Creating a new module
