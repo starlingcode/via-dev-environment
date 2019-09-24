@@ -76,12 +76,12 @@ sudo make install
 sudo apt update
 sudo apt install -y python3-pip
 cd /vagrant
-if [ -d /vagrant/wavetablegentools ]; then
+if [ -d /vagrant/viatools ]; then
 	echo "Python tools exist, skipping clone"
 else
-	git clone "https://github.com/starlingcode/wavetablegentools"
+	git clone "https://github.com/starlingcode/viatools"
 fi
-cd wavetablegentools
+cd viatools
 sudo pip3 install -r requirements.txt
 
 
